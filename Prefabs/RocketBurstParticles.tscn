@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/ExplosionParticles.gd" type="Script" id=1]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0.940909 ), 0.0, 0.0, 0, 0, Vector2( 0.436782, 0 ), -0.444886, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.0662252, 0.278146, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 0.890625, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1 )
+
+[node name="RocketBurstParticles" type="CPUParticles2D"]
+position = Vector2( -4, 0 )
+emitting = false
+amount = 30
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.95
+lifetime_randomness = 1.0
+direction = Vector2( -1, 0 )
+spread = 30.0
+initial_velocity = 161.44
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
